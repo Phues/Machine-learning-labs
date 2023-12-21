@@ -88,39 +88,3 @@ class NaiveBayes(BaseEstimator, ClassifierMixin):
         for parameter, value in parameters.items():
             setattr(self, parameter, value)
         return self
-
-    #def accuracy(self, X, y):
-    #    predictions = X
-    #   #convert y to numpy array
-    #   y = y.to_numpy()
-    #    correct = 0
-    #    for i in range(len(predictions)):
-    #        if y[i] == max(predictions[i], key=predictions[i].get):
-    #            correct += 1
-    #    return correct/len(predictions)
-
-        
-
-""""
-breast_cancer = pd.read_csv("breast-cancer_csv.csv")
-df_cat = breast_cancer.drop(['age', 'inv-nodes'], axis=1)
-X_cat = df_cat.iloc[:,0:7]
-y_cat = df_cat.iloc[:,-1]
-x_train, x_test,y_train, y_test = train_test_split(X_cat,y_cat,test_size=0.20,random_state=0) 
-
-# first model for categorical naive bayes
-cat_model = NaiveBayes(numeric_features=['deg-malig'])
-fitted = cat_model.fit(x_train, y_train)
-
-#covert to json
-with open('data.json', 'w') as fp:
-    json.dump(fitted, fp, indent=4)
-
-# Predict on the test data
-predictions = cat_model.predict(x_test)
-
-# Calculate the accuracy
-accuracy = cat_model.accuracy(predictions, y_test)
-print(accuracy)
-
-"""
